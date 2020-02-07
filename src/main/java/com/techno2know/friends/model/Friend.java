@@ -1,17 +1,15 @@
 package com.techno2know.friends.model;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
-
-import org.hibernate.annotations.Cascade;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -39,21 +37,21 @@ public class Friend {
 
 	@JsonManagedReference
 	@OneToMany(mappedBy = "friend", cascade = CascadeType.ALL)
-	List<Address> address;
+	private Set<Address> addresses;
 
 	public Friend() {
 
 	}
 
 	public Friend(int id, @NotBlank String firstName, @NotBlank String lastName, int age, boolean married,
-			List<Address> address) {
+			Set<Address> addresses) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.age = age;
 		this.married = married;
-		this.address = address;
+		this.addresses = addresses;
 	}
 	
 	
@@ -68,12 +66,12 @@ public class Friend {
 	}
 
 
-	public List<Address> getAddress() {
-		return address;
+	public Set<Address> getAddresses() {
+		return addresses;
 	}
 
-	public void setAddress(List<Address> address) {
-		this.address = address;
+	public void setAddress(Set<Address> addresses) {
+		this.addresses = addresses;
 	}
 
 	public int getId() {

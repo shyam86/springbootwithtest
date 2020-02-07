@@ -6,6 +6,7 @@ import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import javax.validation.Valid;
+import javax.validation.ValidationException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -97,6 +98,11 @@ public class FriendController {
 	@DeleteMapping("/friend/{id}")
 	public void deleteFriends(@PathVariable Integer id) {
 		friendService.deleteById(id);
+	}
+	
+	@GetMapping("/wrong")
+	public Friend SomethingIsWrong() {
+		throw new ValidationException("Something is worng");
 	}
 
 }

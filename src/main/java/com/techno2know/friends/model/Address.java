@@ -21,7 +21,7 @@ public class Address {
 	
 	@JsonBackReference
 	@ManyToOne
-	Friend friend;
+	private Friend friend;
 
 	
 	public int getId() {
