@@ -18,7 +18,7 @@ public class IntegrationTests   {
 
 	@Autowired
 	FriendController friendController;
-
+	/*
 	@Test
 	public void testCreateReadDelete() {
 		
@@ -33,7 +33,7 @@ public class IntegrationTests   {
 
 		
 	}
-	/*
+
 	 * @Test(expected = ValidationException.class) public void
 	 * errorHandlingValidationExceptionThrown() {
 	 * friendController.SomethingIsWrong(); }
